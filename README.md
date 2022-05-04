@@ -1,8 +1,6 @@
-<p align="center"><img src="art/banner-2x.png"></p>
-
 ## Introduction
 
-This repository serves as my way to help me setup and maintain my Mac. It takes the effort out of installing everything manually. Everything needed to install my preferred setup of macOS is detailed in this readme. Feel free to explore, learn and copy parts for your own dotfiles. Enjoy!
+This repository serves as my way to help me setup and maintain my Mac. It takes the effort out of installing everything manually. Everything needed to install my preferred setup of macOS is detailed in this readme. It is adapted from Dries Vint's repo. Feel free to explore, learn and copy parts for your own dotfiles. Enjoy!
 
 📖 - [Read the blog post](https://driesvints.com/blog/getting-started-with-dotfiles)  
 📺 - [Watch the screencast on Laracasts](https://laracasts.com/series/guest-spotlight/episodes/1)  
@@ -50,7 +48,7 @@ After backing up your old Mac you may now follow these install instructions to s
 
 Your Mac is now ready to use!
 
-> 💡 You can use a different location than `~/.dotfiles` if you want. Make sure you also update the reference in the [`.zshrc`](./.zshrc#L2) file.
+> 💡 You can use a different location than `~/.dotfiles` if you want. Make sure you also update the reference in the [`.zshrc`](./.zshrc#) file.
 
 ### Cleaning your old Mac (optionally)
 

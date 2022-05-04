@@ -8,15 +8,15 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH="$HOME/.oh-my-zsh"
 
 # Minimal - Theme Settings
-export MNML_INSERT_CHAR="$"
-export MNML_PROMPT=(mnml_git mnml_keymap)
-export MNML_RPROMPT=('mnml_cwd 20')
+# export MNML_INSERT_CHAR="$"
+# export MNML_PROMPT=(mnml_git mnml_keymap)
+# export MNML_RPROMPT=('mnml_cwd 20')
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="minimal"
+ZSH_THEME="ivtheme"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -62,6 +62,18 @@ ZSH_THEME="minimal"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# History
+export HISTFILE=$HOME/.zsh_history
+export HISTSIZE=100000
+export HISTFILESIZE=${HISTSIZE}
+export HISTTIMEFORMAT="[%F %T] "
+setopt extended_history
+setopt hist_find_no_dups
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_reduce_blanks
+setopt share_history
+
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
@@ -78,17 +90,27 @@ ZSH_CUSTOM=$DOTFILES
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(artisan git)
+plugins=(artisan aws autojump colorize command-not-found emoji zsh-syntax-highlighting zsh-autosuggestions ansiweather zsh-z thefuck history-search-multi-word fzf)
 
 source $ZSH/oh-my-zsh.sh
+
+# Highlight section titles in manual pages
+export LESS_TERMCAP_md="$ORANGE"
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+# This loads nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then

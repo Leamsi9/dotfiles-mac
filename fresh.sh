@@ -19,12 +19,18 @@ fi
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
+# Removes .bashrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
+rm -rf $HOME/.bashrc
+ln -s $HOME/.bashrc/.zshrc $HOME/.bashrc
+
 # Update Homebrew recipes
 brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
 brew bundle --file $DOTFILES/Brewfile
+echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+
 
 # Set default MySQL root password and auth type
 mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
@@ -33,10 +39,10 @@ mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_passwor
 pecl install imagick redis swoole
 
 # Install global Composer packages
-/usr/local/bin/composer global require laravel/installer laravel/valet beyondcode/expose spatie/global-ray spatie/visit
+/usr/local/bin/composer global require beyondcode/expose spatie/global-ray spatie/visit
 
 # Install Laravel Valet
-$HOME/.composer/vendor/bin/valet install
+#$HOME/.composer/vendor/bin/valet install
 
 # Install Global Ray
 $HOME/.composer/vendor/bin/global-ray install
